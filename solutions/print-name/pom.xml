@@ -2,9 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.example</groupId>
-	<artifactId>hello-world</artifactId>
+	<artifactId>print-name</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
 	<build>
 
 		<plugins>
@@ -34,7 +33,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.example.helloworld.App</mainClass>
+									<mainClass>com.example.printname.App</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
@@ -45,5 +44,4 @@
 		</plugins>
 
 	</build>
-	
 </project>

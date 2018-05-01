@@ -13,7 +13,7 @@ public static void main(String[] args) {
 
         if (height < 0) {
             System.out.println("身高不可是負數!");
-            continue; // 
+            continue;
         }
         System.out.println("你的身高是 " + height + " 公分");
         System.out.println("還要繼續嗎?(要,請輸入y)");

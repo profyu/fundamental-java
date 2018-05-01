@@ -1,0 +1,21 @@
+{
+  "name": "fundamental-java-slide",
+  "version": "1.0.0",
+  "description": "Java 從零開始",
+  "main": "index.js",
+  "scripts": {
+    "dev": "reveal-md --theme profyu -w --scripts ./scripts/logo.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "reveal-md $TARGET.md --theme profyu -i scripts/logo.js --static build/$TARGET"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/profyu-edu/fundamental-java-slide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/profyu-edu/fundamental-java-slide#readme",
+  "dependencies": {
+    "reveal-md": "git+https://github.com/profyu/reveal-md.git"
+  }
+}

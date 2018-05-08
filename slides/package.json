@@ -4,7 +4,7 @@
   "description": "Java 從零開始",
   "main": "index.js",
   "scripts": {
-    "dev": "reveal-md --theme profyu -w --scripts ./scripts/logo.js",
+    "dev": "reveal-md --theme profyu --highlight-theme monokai-sublime -w --scripts ./scripts/logo.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "reveal-md $TARGET.md --theme profyu -i scripts/logo.js --static build/$TARGET"
   },

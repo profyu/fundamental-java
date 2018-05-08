@@ -75,9 +75,9 @@ public class App {
 					break;
 				}
 			} else {
-				
+
 				sc.next();
-				
+
 			}
 
 		}

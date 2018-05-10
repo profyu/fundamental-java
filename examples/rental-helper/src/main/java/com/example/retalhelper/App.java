@@ -35,7 +35,8 @@ public class App {
 			System.out.println("歡迎使用租屋小幫手, 請選擇功能:");
 			System.out.println("1. 陳列所有出租房屋");
 			System.out.println("2. 房屋出租查詢");
-			System.out.println("3. 離開");
+			System.out.println("3. 租金試算");
+			System.out.println("4. 離開");
 
 			if (sc.hasNextInt()) {
 				int option = sc.nextInt();
@@ -46,7 +47,7 @@ public class App {
 					System.out.println(infoB);
 					System.out.println(infoC);
 					break;
-				case 2:
+				case 2: {
 					System.out.println("請輸入物件名稱(A or B or C):");
 					String id = sc.next();
 
@@ -67,7 +68,67 @@ public class App {
 					}
 
 					break;
-				case 3:
+				}
+
+				case 3: {
+					// 租金試算程式碼:
+					System.out.println("請輸入物件名稱(A or B or C):");
+					String id = sc.next();
+					int monthlyPrice = 0;
+					switch (id) {
+					case "A":
+						monthlyPrice = priceA;
+						break;
+					case "B":
+						monthlyPrice = priceB;
+						break;
+					case "C":
+						monthlyPrice = priceC;
+						break;
+					default:
+						System.out.println("很抱歉，物件不存在!");
+						continue;
+
+					}
+
+					// 接收合約租期
+					System.out.println("請輸入合約租期(月):");
+					int expectedMonths = sc.nextInt();
+					if (expectedMonths < 0) {
+						System.out.println("資料無效");
+					} else {
+
+						// 接收押金期數
+						System.out.println("請輸入押金期數(月):");
+						int depositMonths = sc.nextInt();
+						if (depositMonths < 0) {
+							System.out.println("資料無效");
+						} else {
+
+							// 接收實際租期
+							System.out.println("請輸入實際租期(月):");
+							int actualMonths = sc.nextInt();
+
+							if (actualMonths > expectedMonths || actualMonths < 0) {
+								System.out.println("資料無效");
+							} else {
+								// 進行租金試算
+								int total = monthlyPrice * actualMonths
+										+ ((actualMonths < expectedMonths) ? (depositMonths * monthlyPrice) : 0);
+								float average = total / (float) actualMonths;
+
+								System.out.println("租金總額: " + total + " 元");
+								System.out.println("月平均租金: " + average + " 元");
+
+							}
+
+						}
+
+					}
+
+					break;
+				}
+				case 4:
 					break mainLoop;
 
 				default:

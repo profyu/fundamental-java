@@ -123,6 +123,16 @@ I,have,an,apple,I,have,a,pen
 * 透過 `next()` 讀取下一個 token (傳回字串)
 * 亦可透過 `nextInt()`,`nextFloat()` 等方法讀取下一個token字串後，順便轉型為基礎型別
 
+
+---
+
+# Scanner 實例方法
+
+* 可透過 `hasNextLine()` 方法確認是否有下一行
+* 可透過 `nextLine()` 方法把下一行讀進來 (傳回字串)
+
+> 這裡看的就不是token, 而是行
+
 ---
 
 ```java

@@ -1,5 +1,7 @@
 package com.example.retalhelper;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class App {
@@ -27,6 +29,7 @@ public class App {
 	public static String getHouseString(int id, House h) {
 		return "索引" + id + "物件 - " + h.getString();
 	}
+	
 
 	public static void main(String[] args) {
 

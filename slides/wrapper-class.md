@@ -139,6 +139,20 @@ System.out.println("161 的 2進位 表示法: "+Integer.toBinaryString(161));
 
 ---
 
+# 取得數值型別的最大、最小值
+
+```java
+System.out.println("int 的範圍:" + Integer.MIN_VALUE + " ~ " + Integer.MAX_VALUE);
+System.out.println("long 的範圍:" + Long.MIN_VALUE + " ~ " + Long.MAX_VALUE);
+System.out.println("float 的範圍:" + Float.MIN_VALUE + " ~ " + Float.MAX_VALUE);
+System.out.println("double 的範圍:" + Double.MIN_VALUE + " ~ " + Double.MAX_VALUE);
+System.out.println("short 的範圍:" + Short.MIN_VALUE + " ~ " + Short.MAX_VALUE);
+System.out.println("byte 的範圍:" + Byte.MIN_VALUE + " ~ " + Byte.MAX_VALUE);
+
+```
+
+---
+
 # Autoboxing 機制
 
 * Java 編譯器會視需要，自動把 `基礎型別` 數值轉成對應的 `包裝型別` 實例

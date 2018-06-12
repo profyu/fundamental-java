@@ -31,22 +31,23 @@ public class App {
 		return "索引" + id + "物件 - " + h.getString();
 	}
 
-	public static House[] readHouses(String filePath) throws FileNotFoundException {
-		Scanner fileScanner = new Scanner(new File(filePath));
+	public static House[] readHouses(String path) throws FileNotFoundException {
+
+		Scanner fileScanner = new Scanner(new File(path));
 
 		House[] result = new House[1];
 
-		int lineNo = 1;
+		int lineNo = 0;
 		while (fileScanner.hasNextLine()) {
-
+			lineNo++;
 			String line = fileScanner.nextLine();
 
 			if (lineNo == 1) {
-				lineNo++;
 				continue;
 			}
 
 			String[] values = line.split(",");
+
 			float area = Float.parseFloat(values[0]);
 			String type = values[1];
 			int price = Integer.parseInt(values[2]);
@@ -54,25 +55,21 @@ public class App {
 			String address = values[4];
 
 			if (lineNo - 2 == result.length) {
+				// 延伸陣列
 				result = Arrays.copyOf(result, result.length * 2);
 			}
-
 			result[lineNo - 2] = new House(area, type, price, owner, address);
 
-			lineNo++;
 		}
+
+		// 縮小陣列到剛好的大小
+		result = Arrays.copyOf(result, lineNo - 1);
 		fileScanner.close();
-		result = Arrays.copyOf(result, lineNo - 2);
 		return result;
+
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-
-		// House[] houses = new House[]{
-		// new House(10f, "套房", 12000, "王先生", "台北市文山區木柵路一段xx號"),
-		// new House(8f, "套房", 8000, "陳先生", "新北市中和區中和路yy號"),
-		// new House(4f, "雅房", 6000, "林先生", "新北市新店區中正路aa巷zz號")
-		// };
 
 		House[] houses = readHouses("/Users/johnlin/Desktop/houses.csv");
 

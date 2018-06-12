@@ -14,9 +14,14 @@ theme: profyu
 # 建構字串實例
 
 * 字串是由一個`字元陣列`構成的，因此建構方法要傳入陣列
+
 ```java
 String myStr = new String(new char[]{'H','e','l','l','o'});
 ```
+
+---
+
+# 建構字串實例
 
 * 太過冗長，因此有專門的雙引號語法用來實作`String`實例
 ```java
@@ -67,9 +72,9 @@ System.out.println("位於索引 0 的字元"+myStr.charAt(0));
 
 ```java
 String myStr = "Hello";
-System.out.println("使否有包含 ell :" + myStr.contains("ell"));
-System.out.println("使否有包含 hel :" + myStr.contains("hel"));
-System.out.println("使否有包含空字串 :" + myStr.contains(""));
+System.out.println("是否有包含 ell :" + myStr.contains("ell"));
+System.out.println("是否有包含 hel :" + myStr.contains("hel"));
+System.out.println("是否有包含空字串 :" + myStr.contains(""));
 ```
 
 ---
@@ -90,7 +95,7 @@ System.out.println("開頭字是否為 hell :" + myStr.startsWith("hell"));
 
 # 判斷是否結尾為...
 
-* 使用`startsWith(String suffix)`實例方法
+* 使用`endsWith(String suffix)`實例方法
 
 ```java
 String myStr = "Hello";
@@ -112,6 +117,7 @@ System.out.println("第一次出現 l 的位置" + myStr.indexOf("l"));
 ```
 
 * 使用 `indexOf(String str, int fromIndex)`，可指定開始搜尋的位置
+
 ```java
 System.out.println("從位置 3 開始搜尋，第一次出現 l 的位置" + myStr.indexOf("l",3));
 ```
@@ -178,7 +184,7 @@ String myStr = "Hello";
 
 # 還是可重新賦值給 myStr 變數
 
-* 因為重新賦值給`myStr`跟實例不可變動性無關
+* 因為重新賦值給`myStr`跟實例不可變動性**無關**!
 
 ```java
 String myStr = "Hello";

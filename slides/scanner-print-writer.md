@@ -13,7 +13,7 @@ theme: profyu
 
 # 文本
 
-* 由很多`字元`組成的一段內容:
+* 由很多`字元`組成的一段文字內容:
    * 一份文字檔的內容
    * 一份網頁裡的內容
    * 一個Java程式裡面的字串
@@ -24,7 +24,7 @@ theme: profyu
 
 * 一份文字檔的內容: 在本機的`硬碟`上
 * 一份網頁裡的內容: 在`遠端`的硬碟上
-* 在Console裡的內容: 在`作業系統` 管理的記憶體中
+* 使用者打字在Console裡的內容: 在`作業系統` 管理的記憶體中
 * 一個 Java 程式裡面的字串: 在 `JVM` 管理的記憶體中
 
 ---
@@ -40,7 +40,12 @@ theme: profyu
 # Input 最好分批進行
 
 * 假設要寫一支程式，讀取硬碟上的一份檔案，並且印出完整哪容
-* 方法1: 整份讀取，整份印出:
+
+---
+
+# Input 最好分批進行
+
+* 方法1: `整份讀取，整份印出`:
 
 ```java
 String full = // 讀取整份檔案的內容 ;
@@ -51,7 +56,7 @@ System.out.println(full);
 
 # Input 最好分批進行
 
-* 方法2: 逐行讀取，逐行印出
+* 方法2: `逐行讀取，逐行印出`
 
 ```java
 while(/*檔案還有下一行*/) {
@@ -73,7 +78,7 @@ while(/*檔案還有下一行*/) {
 * 一份文本透過一種`分割模式`被切割出來的片段，稱為`token`
 * 例如 `I have an apple`, 透過 `空白`切割，可得到以下 4 `tokens`:
   
-```
+```txt
 I,have,an,apple
 ```
 
@@ -82,13 +87,15 @@ I,have,an,apple
 # 透過 Scanner 來讀取文本 
 
 * 以下文本透過 `空白或換行` 切割:
-```
+
+```txt
 I have an apple
 I have a pen
 ```
 
 * 可得到以下 8 `tokens`:
-```
+
+```txt
 I,have,an,apple,I,have,a,pen
 ```
 
@@ -98,7 +105,19 @@ I,have,an,apple,I,have,a,pen
 
 * Scanner 預設分割模式就是`空白或換行`
 * Scanner 建構方法可以決定`文本來源`
-* Scanner 可以逐`token`讀取
+* Scanner 可以單向一路讀取 `token` 讀取
+
+---
+
+* I, have, an, apple, I, have, a, pen
+* `I`, have, an, apple, I, have, a, pen
+* I, `have`, an, apple, I, have, a, pen
+* I, have, `an`, apple, I, have, a, pen
+* I, have, an, `apple`, I, have, a, pen
+* I, have, an, apple, `I`, have, a, pen
+* I, have, an, apple, I, `have`, a, pen
+* I, have, an, apple, I, have, `a`, pen
+* I, have, an, apple, I, have, a, `pen`
 
 ---
 
@@ -110,18 +129,18 @@ I,have,an,apple,I,have,a,pen
 
 # Scanner 實例方法
 
-* 透過 `hasNext()` 來確認: 
-  * `排除掉已經讀過的token`，是否還有下一個 token 在後面?
+* 透過 `next()` 讀取下一個 token (傳回字串)
+* 亦可透過 `nextInt()`,`nextFloat()` 等方法讀取下一個token字串後，順便轉型為基礎型別
 
-* 亦可透過 `hasNextInt()`, `hasNextFloat()` 來確認:
-  * `排除掉已經讀過的token`，是否還有下一個可轉為 int/float 的 token 在後面?
 
 ---
 
 # Scanner 實例方法
 
-* 透過 `next()` 讀取下一個 token (傳回字串)
-* 亦可透過 `nextInt()`,`nextFloat()` 等方法讀取下一個token字串後，順便轉型為基礎型別
+* 透過 `hasNext()` 來確認: 
+  * `排除掉已經讀過的token`，是否還有下一個 token 在後面?
+* 亦可透過 `hasNextInt()`, `hasNextFloat()` 來確認:
+  * `排除掉已經讀過的token`，是否還有下一個可轉為 int/float 的 token 在後面?
 
 
 ---

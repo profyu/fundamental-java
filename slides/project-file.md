@@ -27,22 +27,23 @@ theme: profyu
 # 範例
 
 ```java
-public static House[] readHouses(String filePath) throws FileNotFoundException {
-    Scanner fileScanner = new Scanner(new File(filePath));
+public static House[] readHouses(String path) throws FileNotFoundException {
+
+    Scanner fileScanner = new Scanner(new File(path));
 
     House[] result = new House[1];
 
-    int lineNo = 1;
+    int lineNo = 0;
     while (fileScanner.hasNextLine()) {
-
+        lineNo++;
         String line = fileScanner.nextLine();
 
         if (lineNo == 1) {
-            lineNo++;
             continue;
         }
 
         String[] values = line.split(",");
+
         float area = Float.parseFloat(values[0]);
         String type = values[1];
         int price = Integer.parseInt(values[2]);
@@ -50,15 +51,17 @@ public static House[] readHouses(String filePath) throws FileNotFoundException {
         String address = values[4];
 
         if (lineNo - 2 == result.length) {
+            // 延伸陣列
             result = Arrays.copyOf(result, result.length * 2);
         }
-
         result[lineNo - 2] = new House(area, type, price, owner, address);
 
-        lineNo++;
     }
+
+    // 縮小陣列到剛好的大小
+    result = Arrays.copyOf(result, lineNo - 1);
     fileScanner.close();
-    result = Arrays.copyOf(result, lineNo - 2);
     return result;
+
 }
 ```

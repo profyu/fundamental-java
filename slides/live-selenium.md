@@ -20,7 +20,7 @@ https://kma.kkbox.com/charts/daily/newrelease?date=2018-06-11&lang=tc&terr=tw
 ```
 * 給定一個`日期` (預設是今天)
 * 程式自動抓回當天的`華語新歌排行`，存成`CSV`檔
-* 互動: 自動播放當天榜上的曲目(視聽)
+* 互動: 自動播放當天榜上的曲目(試聽)
 
 
 ---
@@ -132,7 +132,7 @@ https://kma.kkbox.com/charts/daily/newrelease?date=2018-06-11&lang=tc&terr=tw
 
 # 範例原始碼
 
-[https://github.com/profyu/song-rank][https://github.com/profyu/song-rank]
+[https://github.com/profyu/song-rank](https://github.com/profyu/song-rank)
 
 ---
 

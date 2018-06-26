@@ -7,7 +7,7 @@ theme: profyu
 <img style='border:none;background:none;box-shadow:none;' src='assets/logo.svg' width="250"/>
 
 # 例外處理:
-## 認識 try-catch-finally 控制結構與 thorw 陳述
+## 認識 try-catch-finally 控制結構
 
 ---
 

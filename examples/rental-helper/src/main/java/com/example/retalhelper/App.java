@@ -3,6 +3,7 @@ package com.example.retalhelper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class App {
@@ -72,9 +73,9 @@ public class App {
 	public static void main(String[] args) throws FileNotFoundException {
 
 		House[] houses = readHouses("/Users/johnlin/Desktop/houses.csv");
-
+		
 		Scanner sc = new Scanner(System.in);
-
+		
 		mainLoop: while (true) {
 
 			printGuide();

@@ -13,7 +13,7 @@ theme: profyu
 
 # 例外 Exception
 
-* 程式執行過程中，發生了預期外的事件
+* 程式執行過程中，發生了預期外的`事件`
   * 使用者不按規定輸入
   * 程式要去讀取檔案文本，卻發現檔案不存在
   * 要去讀取網路上的文本，卻發現網路不通
@@ -53,18 +53,22 @@ System.out.println("位於索引 "+index+" 的數字是:" + selected);
 
 * 一旦發現使用者輸入`非整數`，就要印出 `數字錯誤`
 * 一旦發現使用者輸入`錯誤的索引`，就要印出 `索引錯誤`
-  
----
 
+---
 
 # 方法一: 提前檢查
 
 * 提前檢查，讓程式完全執行不到有風險的陳述
+
 ```java
 int[] numbers = new int[] { 11, 13, 15 };
 
 Scanner sc = new Scanner(System.in);
 System.out.println("請輸入索引: ");
+if(!sc.hasNextInt()) {
+    System.out.println("數字錯誤");
+    return;
+}
 int index = sc.nextInt();
 
 if (index < 0 || index >= numbers.length) {
@@ -85,12 +89,37 @@ System.out.println("位於索引 " + index + " 的數字是:" + selected);
 
 ---
 
+# 已知的例外
+
+1. `sc.nextInt()` 可能會有:
+  * `InputMismatchException`
+2. `numbers[index]` 可能會有:
+  * `ArrayIndexOutOfBoundsException`
+
+---
+
+# try-catch 控制結構
+
+```java
+try {
+    // 陳述...
+    // 陳述...
+    // 陳述...
+}
+catch(InputMismatchException e) {
+    // InputMismatchException 例外發生了，跳到此 catch 區段來處理..
+}
+```
+
+---
+
 # 情境 & 思考
 
 * 假設現在無論是：
   1. 使用者沒有輸入整數
   2. 使用者沒有輸入正確索引
 * 都只要印出 `輸入錯誤` 就好
+
 
 ---
 

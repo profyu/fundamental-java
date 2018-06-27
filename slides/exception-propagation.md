@@ -6,7 +6,11 @@ theme: profyu
 <!-- .slide: data-background="assets/background.png" -->
 <img style='border:none;background:none;box-shadow:none;' src='assets/logo.svg' width="250"/>
 
-## 認識 Call Stack 與 Java 的例外傳遞機制
+## 認識 Java 的例外傳遞機制
+
+---
+
+# 認識 Call Stack
 
 ---
 
@@ -37,7 +41,7 @@ theme: profyu
 
 # Call Stack
 
-* 用堆疊結構來紀錄`方法呼叫`的過程
+* 用堆疊結構來紀錄`方法呼叫的過程`
 
 > 程式執行的狀態
 

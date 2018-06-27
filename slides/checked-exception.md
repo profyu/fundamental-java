@@ -6,13 +6,13 @@ theme: profyu
 <!-- .slide: data-background="assets/background.png" -->
 <img style='border:none;background:none;box-shadow:none;' src='assets/logo.svg' width="250"/>
 
-## 認識受檢例外
+## 認識受檢例外 (Checked Exception)
 
 ---
 
 # 哪些例外是受檢例外
 
-* 不滿足 `IS A RuntimeException` 的例外都是 `受檢例外`
+* 不滿足 `IS A RuntimeException` 的`例外`都是 `受檢例外`
 
 ---
 
@@ -32,7 +32,7 @@ theme: profyu
 
 * `TimeoutExcpetion`會成為方法定義的一部分:
 
-  * 告訴外界呼叫`spend`時可能會擲出`TimeoutExcpetion`
+  * 以便告訴外界呼叫`spend`時可能會擲出`TimeoutExcpetion`
 
 ---
 

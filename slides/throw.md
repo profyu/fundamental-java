@@ -7,7 +7,7 @@ theme: profyu
 <img style='border:none;background:none;box-shadow:none;' src='assets/logo.svg' width="250"/>
 
 # 例外處理:
-## throw 陳述與常見例外類別的使用
+## 認識 throw 陳述
 
 ---
 
@@ -39,7 +39,7 @@ try {
 
 * 撰寫一個 Wallet 類別，用來存放餘額(`int amount`)
 * Wallet 有實例方法:
-    * `spent(int value)`: 用來減少餘額
+    * `spend(int expense)`: 用來減少餘額
     * `getAmount()`: 餘額的 getter
 
 ---
@@ -48,7 +48,7 @@ try {
 
 * 在 `main` 方法中，建構一個 Wallet 實例 `w`
 * 用 Scanner 接受使用者想讓 `w` 花多少錢
-* 最後，印出花完後的餘額。
+* 最後，印出花完後的餘額
 * 如果使用者沒有輸入整數，則印出 `輸入錯誤`
 
 ---
@@ -144,8 +144,8 @@ public static void main(String[] args) {
 
 # 擲出例外
 
-* `spend` 方法，可能因為呼叫時，外界傳入錯誤參數而運作異常。
-* 讓 `spend` 方法，有機會擲出例外，好讓呼叫者可以捕獲並處理。
+* `spend` 方法，可能因為外界傳入錯誤參數而運作異常。
+* 讓 `spend` 方法擲出例外，好讓呼叫者可以捕獲並處理。
 
 ---
 
@@ -166,7 +166,7 @@ public void spend(int expense) {
 
 # IllegalArgumentException
 
-![illegal-arg-exception](assets/illegal-arg-exception.png)
+* 用來表示因傳入參數有問題，導致例外發生
 
 ---
 
@@ -196,14 +196,3 @@ public static void main(String[] args) {
 }
 ```
 
----
-
-# NullPointerException
-
----
-
-# ClassCastException
-
----
-
-# IllegalStateException

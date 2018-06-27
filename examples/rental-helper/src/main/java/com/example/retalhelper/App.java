@@ -70,12 +70,29 @@ public class App {
 
 	}
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 
-		House[] houses = readHouses("/Users/johnlin/Desktop/houses.csv");
-		
+		String defaultPath = "/Users/johnlin/Desktop/houses.csv";
+		House[] houses = null;
 		Scanner sc = new Scanner(System.in);
-		
+
+		try {
+			houses = readHouses(defaultPath);
+		} catch (FileNotFoundException e) {
+			System.out.println("檔案不存在於預設路徑: " + defaultPath);
+			System.out.println("請輸入CSV檔路徑: ");
+			String inputPath = sc.nextLine();
+			try
+			{
+				houses = readHouses(inputPath);
+			}
+			catch (FileNotFoundException e2) {
+				System.out.println("檔案不存在於路徑: "+ inputPath);
+				return;
+			}
+			
+		}
+
 		mainLoop: while (true) {
 
 			printGuide();

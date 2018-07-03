@@ -89,7 +89,7 @@ public static void main(String[] args) {
 
 ---
 
-## `RandomIntPicker`, `RandomStringPicker`, `RandomDoublePicker`
+## `RandomIntPicker`, `RandomStringPicker`, `RandomFloatPicker`
 # 明明都程式碼極為相近，卻要重複寫三次
 
 ---
@@ -101,6 +101,16 @@ public static void main(String[] args) {
 
 # 泛型 (Generics)
 ## 就是用來解決這種重工的情況
+
+---
+
+# 一套模板，重複使用
+
+![rental-contract](assets/rental-contract.jpg)
+
+---
+
+![rental-contract](assets/rental-contract.png)
 
 ---
 
@@ -119,10 +129,10 @@ public class RandomPicker {
 	}
 
 	public ▒▒▒▒▒▒ generate() {
-		 int rand = ThreadLocalRandom.current().nextInt(0, 4);
-		 if(rand == 0){
+		 int rand = ThreadLocalRandom.current().nextInt(0, 3);
+		 if(random == 0){
 			 return optionA;
-		 }else if(rand == 1){
+		 }else if(random == 1){
 			 return optionB;
 		 }
 		 else{

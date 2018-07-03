@@ -25,10 +25,10 @@ public class RandomPicker {
 	}
 
 	public ▒▒▒▒▒▒ generate() {
-		 int rand = ThreadLocalRandom.current().nextInt(0, 4);
-		 if(rand == 0){
+		 int rand = ThreadLocalRandom.current().nextInt(0, 3);
+		 if(random == 0){
 			 return optionA;
-		 }else if(rand == 1){
+		 }else if(random == 1){
 			 return optionB;
 		 }
 		 else{
@@ -56,10 +56,10 @@ public class RandomPicker<T> {
 	}
 
 	public T generate() {
-		 int rand = ThreadLocalRandom.current().nextInt(0, 4);
-		 if(rand == 0){
+		 int rand = ThreadLocalRandom.current().nextInt(0, 3);
+		 if(random == 0){
 			 return optionA;
-		 }else if(rand == 1){
+		 }else if(random == 1){
 			 return optionB;
 		 }
 		 else{

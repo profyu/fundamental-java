@@ -76,6 +76,7 @@ public class App {
 		House[] houses = null;
 		Scanner sc = new Scanner(System.in);
 
+		// 讀取CSV 內的租屋資料
 		try {
 			houses = readHouses(defaultPath);
 		} catch (FileNotFoundException e) {
@@ -92,6 +93,9 @@ public class App {
 			}
 			
 		}
+		
+		Arrays.sort(houses, new HouseComparator());
+		
 
 		mainLoop: while (true) {
 

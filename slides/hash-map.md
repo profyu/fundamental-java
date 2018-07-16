@@ -6,13 +6,13 @@ theme: profyu
 <!-- .slide: data-background="assets/background.png" -->
 <img style='border:none;background:none;box-shadow:none;' src='assets/logo.svg' width="250"/>
 
-# Java 集合: Set
-# 認識 HashSet 類別
+# Java 集合: Map
+# 認識 HashMap 類別
 
 ---
 
 # Java 的集合 (Collection) 種類
-## `List`, `Set`, `Map`, `Stack`, `Queue`
+## `List`, `Set`, `Map`, `Queue`
 
 ---
 

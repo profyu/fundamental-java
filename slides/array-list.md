@@ -25,7 +25,7 @@ theme: profyu
 ---
 
 # Java 的集合種類
-## `List`, `Set`, `Map`, `Stack`, `Queue`
+## `List`, `Set`, `Map`, `Queue`
 
 ---
 

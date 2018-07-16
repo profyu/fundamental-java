@@ -12,7 +12,7 @@ theme: profyu
 ---
 
 # Java 的集合 (Collection) 種類
-## `List`, `Set`, `Map`, `Stack`, `Queue`
+## `List`, `Set`, `Map`, `Queue`
 
 ---
 

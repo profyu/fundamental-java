@@ -54,3 +54,50 @@ theme: profyu
 ---
 
 ![house-crawler-phase](assets/house-crawler-phase.png)
+
+---
+
+# 使 JVM 信任所有 SSL 憑證發行單位
+
+1. 引用 `common net` 套件
+2. 加入以下 import
+```java
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import org.apache.commons.net.util.TrustManagerUtils;
+```
+3. 加入以下程式碼到 `main 方法`
+```
+SSLContext sc = SSLContext.getInstance("SSL");
+sc.init(null, new TrustManager[] { TrustManagerUtils.getAcceptAllTrustManager() }, new SecureRandom());
+HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+```
+
+---
+
+# 價格解析
+
+1. 原始字串: `"13,000 元/月"`
+2. 經過 split: `["13,000" , "元/月"]`
+3. 只看第0個: `"13,000"`
+4. 把逗號取代成空字(刪除逗號): `"13000"`
+5. parseInt: `13000`
+
+---
+
+# 坪數解析
+
+1. 原始字串: `"坪數 : 6坪"`
+2. 抓取子字串: `"6"`
+3. parseFloat: `6.0`
+
+---
+
+# 房屋型態解析
+
+1. 原始字串: `"現況 : 獨立套房"`
+2. 抓取子字串: `"獨立套房"`

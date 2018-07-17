@@ -69,6 +69,8 @@ public class App {
 
 	public static void main(String[] args) {
 
+		
+		
 		String defaultPath = "/Users/johnlin/Desktop/houses.csv";
 		List<House> houses = null;
 		Scanner sc = new Scanner(System.in);

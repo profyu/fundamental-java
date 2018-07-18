@@ -86,3 +86,9 @@ House house = new House(area, type, price, owner, address);
 
 ## 租屋資料爬回來後
 # 將資料序列化成 JSON 檔保存
+
+
+---
+
+## 租屋小幫手一開始執行時
+# 要先去反序列化之前做好的JSON檔

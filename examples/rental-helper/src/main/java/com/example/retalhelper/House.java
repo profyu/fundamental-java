@@ -2,23 +2,29 @@ package com.example.retalhelper;
 
 public class House {
 
+	private int postId;
 	private float area;
 	private String type;
 	private int price;
 	private String owner;
 	private String address;
+	
+	// 0: 緯度, 1: 經度
+	private double[] coordinate;
 
-	public House(float area, String type, int price, String owner, String address) {
+	public House(int postId, float area, String type, int price, String owner, String address, double[] coordinate) {
+		this.postId = postId;
 		this.area = area;
 		this.type = type;
 		this.price = price;
 		this.owner = owner;
 		this.address = address;
+		this.coordinate = coordinate;
 	}
 
 	@Override
 	public String toString() {
-		return area + "坪 - " + type + " - 每月" + price + "元 - 屋主:" + owner + " - 地址:" + address;
+		return postId + " - " + area + "坪 - " + type + " - 每月" + price + "元 - 屋主:" + owner + " - 地址:" + address;
 	}
 
 	public float getArea() {
@@ -61,6 +67,22 @@ public class House {
 		this.address = address;
 	}
 
+	public int getPostId() {
+		return postId;
+	}
+
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
+
+	public double[] getCoordinate() {
+		return coordinate;
+	}
+
+	public void setCoordinate(double[] coordinate) {
+		this.coordinate = coordinate;
+	}
+	
 	
 	
 	

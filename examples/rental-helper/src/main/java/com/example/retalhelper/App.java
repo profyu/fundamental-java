@@ -1,26 +1,21 @@
 package com.example.retalhelper;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.List;
+
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
-import org.apache.commons.net.util.TrustManagerUtils;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import org.apache.commons.net.util.TrustManagerUtils;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
+
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 
 public class App {
 	public static void main(String[] args) {
@@ -31,26 +26,14 @@ public class App {
 			sc.init(null, new TrustManager[] { TrustManagerUtils.getAcceptAllTrustManager() }, new SecureRandom());
 			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 
-			// 詢問 JSON 檔路徑
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("請輸入JSON資料檔路徑: ");
-			String filePath = scanner.nextLine();
+			// 引導 Morphia 來讀取標記
+			Morphia morphia = new Morphia();
+			morphia.mapPackage("com.example.retalhelper");
 
-			// 宣告GSON 實例
-			Gson gson = new Gson();
-
-			// 反序列化回 HashMap<Integer ,House>
-			Map<Integer, House> houses = null;
-			try (FileReader reader = new FileReader(filePath)) {
-				System.out.println("開始反序列化...");
-				Type type = TypeToken.getParameterized(HashMap.class, Integer.class, House.class).getType();
-				houses = gson.fromJson(reader, type);
-				System.out.println("反序列化成功, 共有 " + houses.size() + " 筆資料");
-
-			} catch (FileNotFoundException e) {
-				System.out.println("檔案不存在");
-				houses = new HashMap<>();
-			}
+			// 建立 MongoDB 網路連線
+			MongoClientURI uri = new MongoClientURI("注意:此處應填入自己MongoDB的連線字串");
+			MongoClient mongoClient = new MongoClient(uri);
+			Datastore datastore = morphia.createDatastore(mongoClient, "rental_helper");
 
 			// 透過 ListPageCrawler 實例來抓回列表頁面當中，通往各屋詳細連頁面結網址
 			ListPageCrawler lpc = new ListPageCrawler(1, 1);
@@ -64,21 +47,23 @@ public class App {
 				DetailPageCrawler dpc = new DetailPageCrawler(detailUrl);
 				House house = dpc.getHouse();
 
-				// 如果成功才加入租屋資料清單
+				// 如果成功才加入資料庫
 				if (house != null) {
-					houses.put(house.getPostId(), house);
+
+					// 查詢資料庫: 是否已經有符合的 postId 的租屋資料
+					List<House> existed = datastore.createQuery(House.class).field("postId").equal(house.getPostId())
+							.asList();
+
+					if (existed.size() == 0) {
+						datastore.save(house);
+						System.out.println("資料已寫入");
+					} else {
+						System.out.println("資料已存在");
+					}
 					System.out.println(house.toString());
 				}
 
 			}
-			System.out.println("抓取完成");
-
-			// 透過 GSON 序列化成 JSON 檔
-			try (FileWriter writer = new FileWriter(filePath)) {
-				gson.toJson(houses, writer);
-			}
-
-			System.out.println("序列化完成");
 
 		} catch (IOException | NoSuchAlgorithmException | KeyManagementException e) {
 			System.out.println("網頁抓取失敗");

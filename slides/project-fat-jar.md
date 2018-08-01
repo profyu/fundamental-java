@@ -30,7 +30,7 @@ $ java HelloWorld
 
 # 但租屋小幫手
 ## 想這樣直接指定 Bytecode 來執行
-# 很繁瑣！
+# 指令很繁瑣！
 
 ---
 
@@ -45,7 +45,14 @@ $ java HelloWorld
 # 執行指令就會變成...
 
 ```
-java -classpath /Users/johnlin/Documents/Profyu/eclipse-workspace/rental-helper-final/target/classes:/Users/johnlin/.m2/repository/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar:/Users/johnlin/.m2/repository/commons-net/commons-net/3.6/commons-net-3.6.jar:/Users/johnlin/.m2/repository/org/mongodb/morphia/morphia/1.3.2/morphia-1.3.2.jar:/Users/johnlin/.m2/repository/org/mongodb/mongo-java-driver/3.4.0/mongo-java-driver-3.4.0.jar:/Users/johnlin/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/Users/johnlin/.m2/repository/com/thoughtworks/proxytoys/proxytoys/1.0/proxytoys-1.0.jar com.example.retalhelper.App
+java -classpath
+ /Users/johnlin/Documents/Profyu/eclipse-workspace/rental-helper-final/target/classes:
+ /Users/johnlin/.m2/repository/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar:
+ /Users/johnlin/.m2/repository/commons-net/commons-net/3.6/commons-net-3.6.jar:
+ /Users/johnlin/.m2/repository/org/mongodb/morphia/morphia/1.3.2/morphia-1.3.2.jar:
+ /Users/johnlin/.m2/repository/org/mongodb/mongo-java-driver/3.4.0/mongo-java-driver-3.4.0.jar:
+ /Users/johnlin/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:
+ /Users/johnlin/.m2/repository/com/thoughtworks/proxytoys/proxytoys/1.0/proxytoys-1.0.jar com.example.retalhelper.App
 ```
 
 ---

@@ -1,18 +1,26 @@
 package com.example.retalhelper;
 
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.geo.Point;
+
+@Entity("houses")
 public class House {
 
+	@Id
 	private int postId;
 	private float area;
 	private String type;
 	private int price;
 	private String owner;
 	private String address;
+	private Point coordinate;
 	
-	// 0: 緯度, 1: 經度
-	private double[] coordinate;
+	private House(){
+		
+	}
 
-	public House(int postId, float area, String type, int price, String owner, String address, double[] coordinate) {
+	public House(int postId, float area, String type, int price, String owner, String address, Point coordinate) {
 		this.postId = postId;
 		this.area = area;
 		this.type = type;
@@ -75,11 +83,11 @@ public class House {
 		this.postId = postId;
 	}
 
-	public double[] getCoordinate() {
+	public Point getCoordinate() {
 		return coordinate;
 	}
 
-	public void setCoordinate(double[] coordinate) {
+	public void setCoordinate(Point coordinate) {
 		this.coordinate = coordinate;
 	}
 	

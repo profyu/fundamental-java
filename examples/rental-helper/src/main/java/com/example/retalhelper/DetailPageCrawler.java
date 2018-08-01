@@ -6,6 +6,8 @@ import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.mongodb.morphia.geo.Point;
+import org.mongodb.morphia.geo.PointBuilder;
 
 public class DetailPageCrawler {
 
@@ -74,8 +76,8 @@ public class DetailPageCrawler {
 			return null;
 		}
 		double[] coordinate = mpc.getCoordinate();
-
-		return new House(postId, area, type, price, owner, address, coordinate);
+		Point point = PointBuilder.pointBuilder().latitude(coordinate[0]).longitude(coordinate[1]).build();
+		return new House(postId, area, type, price, owner, address, point);
 
 	}
 
